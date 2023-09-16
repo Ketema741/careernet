@@ -20,6 +20,7 @@ type Props = {
   children: React.ReactNode
 }
 const InternshipState  = (props:Props) => {
+  const api_url = "https://careernet-api.vercel.app/"
   const initialState: State = {
     internships: [],
     internship: null,
@@ -34,7 +35,7 @@ const InternshipState  = (props:Props) => {
   // Get internships
   const getInternships = async () => {
     try {
-      const res = await axios.get('/api/internships');
+      const res = await axios.get(`${api_url}/api/internships`);
       dispatch({
         type: GET_INTERNSHIPS,
         payload: res.data,
@@ -54,7 +55,7 @@ const InternshipState  = (props:Props) => {
   // Get internship
   const getInternship = async () => {
     try {
-      const res = await axios.get('/api/internship');
+      const res = await axios.get(`${api_url}/api/internship`);
     console.log("list of internships")
 
       dispatch({
@@ -76,7 +77,7 @@ const InternshipState  = (props:Props) => {
   // update internship
   const updateInternship = async () => {
     try {
-      const res = await axios.put('api/internship');
+      const res = await axios.put(`${api_url}api/internship`);
       dispatch({
         type: UPDATE_INTERNSHIP,
         payload: res.data,
