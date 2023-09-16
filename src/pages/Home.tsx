@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Navbar, Footer, Sidebar } from '../components';
+import { useStateContext } from '../context/ContextProvider';
+import Header from './Header';
 
 const Home = () => {
 
-  const activeMenu = true;
-  const currentMode = "Dark";
-  
+  const { setCurrentColor, setCurrentMode, currentMode, activeMenu, } = useStateContext();
+
+
+
+  useEffect(() => {
+    const currentThemeColor = localStorage.getItem('colorMode');
+    const currentThemeMode = localStorage.getItem('themeMode');
+    if (currentThemeColor && currentThemeMode) {
+      setCurrentColor(currentThemeColor);
+      setCurrentMode(currentThemeMode);
+    }
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
       <div className="flex relative dark:bg-main-dark-bg">
@@ -30,7 +43,8 @@ const Home = () => {
             <Navbar />
           </div>
           <div>
-            <h1>hello world</h1>
+            <Header />
+            <h1>hellow mother fuckers</h1>
           </div>
           <Footer />
         </div>

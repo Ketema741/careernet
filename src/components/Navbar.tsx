@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { RiNotification3Line } from 'react-icons/ri';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { RxAvatar } from 'react-icons/rx';
+import { useStateContext } from '../context/ContextProvider';
 
 interface NavButtonProps {
   title: string;
@@ -25,13 +26,41 @@ const NavButton: React.FC<NavButtonProps> = ({ title, customFunc, icon, color })
 
 const Navbar: React.FC = () => {
 
-  const handleActiveMenu = () => { };
+  const {
+    currentColor,
+    activeMenu,
+    setActiveMenu,
+    handleClick,
+    setScreenSize,
+    screenSize,
+  } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+    // eslint-disable-next-line
+  }, [screenSize]);
+
+
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+
   return (
     <div className="flex justify-between items-center bg-white dark:bg-gray-800 dark:border-gray-700 shadow-md relative h-20">
       <NavButton
         title="Menu"
         customFunc={handleActiveMenu}
-        color={"#03C9D7"}
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
 
@@ -40,8 +69,8 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:block">
             <NavButton
               title="Chat"
-              customFunc={() => { }}
-              color={"#03C9D7"}
+              customFunc={() => handleClick("chat")}
+              color={currentColor}
               icon={<BsChatLeft />}
             />
           </div>
@@ -49,8 +78,8 @@ const Navbar: React.FC = () => {
           <div className="hidden sm:block">
             <NavButton
               title="Notification"
-              customFunc={() => { }}
-              color={"#03C9D7"}
+              customFunc={() => handleClick("notification")}
+              color={currentColor}
               icon={<RiNotification3Line />}
             />
           </div>
