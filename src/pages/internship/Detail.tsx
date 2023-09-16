@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import DetailCard from './DetailCard'
 
-const Detail = () => {
+const Detail: FC = () => {
 
   return (
     <div className="mt-4  container mx-auto">

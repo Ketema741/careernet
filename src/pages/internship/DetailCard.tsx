@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { SiBookstack } from "react-icons/si";
 import Blog from "../../assets/svg/undraw_job_offers_re_634p.svg";
 
-const DetailCard = () => {
+const DetailCard: FC = () => {
   return (
     <div className="lg:flex" >
       <div className="relative mt-8 md:mt-16 space-y-8 sm:w-full sm:px-4 md:w-2/3 lg:ml-0 sm:mx-auto text-center lg:text-left lg:mr-auto lg:w-7/12">

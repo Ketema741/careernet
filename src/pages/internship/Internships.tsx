@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import InternshipCard from './InternshipCard';
 import Header from './Header'
 
 
-const Internships = () => {
+const Internships: FC = () => {
   return (
     <div>
       <Header />
