@@ -6,6 +6,7 @@ import {
   Internships,
   InternshipDetail,
   Jobs,
+  JobDetail,
 } from './pages';
 import AboutUs from './pages/aboutus/AboutUs';
 import FAQ from './pages/faq/FAQ';
@@ -22,8 +23,8 @@ function App() {
           <Route path="/internship" element={<Internships />} />
           <Route path="/internship/:id" element={<InternshipDetail />} />
           <Route path="/jobs" element={<Jobs />} />
+          <Route path="/job/:id" element={<JobDetail />} />
         </Route>
-
       </Routes>
     </Router>
   );
