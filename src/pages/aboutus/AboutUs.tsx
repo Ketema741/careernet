@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
-import Ketema from '../../assets/me.png';
-import Dawit from '../../assets/dev.png';
+import Ketema from '../../assets/teamMembers/me.png';
+import Dawit from '../../assets/teamMembers/dev.png';
 import AboutUsCard from './AboutUsCard';
 
 const AboutUs: FC = () => {
-
   return (
     <div>
       <AboutUsCard />

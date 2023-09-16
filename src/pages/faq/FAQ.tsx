@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import FAQCard from './FAQCard';
-import FAQAnswers from '../../assets/undraw_questions_re_1fy7.svg'
+import FAQAnswers from '../../assets/svg/undraw_questions_re_1fy7.svg'
 
 const FAQ: FC = () => {
   return (

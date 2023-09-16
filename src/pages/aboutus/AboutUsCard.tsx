@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import TeamSpirit from '../../assets/undraw_team_spirit_re_yl1v.svg';
+import TeamSpirit from '../../assets/svg/undraw_team_spirit_re_yl1v.svg';
 
 const AboutUsCard: FC = () => {
 
