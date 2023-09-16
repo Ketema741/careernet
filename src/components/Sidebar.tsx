@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { MdOutlineCancel } from 'react-icons/md';
 
-import { links } from '../data/dummy';
+import { links } from '../assets/data/dummy';
 import { useStateContext } from '../context/ContextProvider';
 import Logo from '../assets/logo.svg';
 
