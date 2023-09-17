@@ -77,6 +77,7 @@ const Blogstate = (props: Props) => {
     try {
       const res = await axios.get(`${api_url}/api/blogs/${_id}`);
       getRelatedBlogs(res.data.category)
+      clearFilter()
       dispatch({
         type: GET_POST,
         payload: res.data,
