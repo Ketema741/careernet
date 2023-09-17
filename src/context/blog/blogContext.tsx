@@ -19,6 +19,7 @@ export interface BlogPost {
   timeline: string[];
   takeaways: string[];
   comments: any[];
+  date: string;
 }
 
 export interface BlogContextType {

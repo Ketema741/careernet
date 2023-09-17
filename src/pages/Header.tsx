@@ -27,7 +27,7 @@ const Header = () => {
                             Career Pathway Solutions
                         </p>
                         <div className="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
-                            <div aria-label="add to slack" className="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
                                 <div className="flex justify-center space-x-4">
 
                                     <SiBookstack className='w-6 h-6' style={{ color: '#03C9D7' }} />
@@ -36,13 +36,13 @@ const Header = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div aria-label="add to chat" className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-lime-600/20 dark:hover:border-green-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-lime-600/20 dark:hover:border-green-300/30">
                                 <div className="flex justify-center space-x-4">
                                     <FaConnectdevelop className='w-6 h-6' style={{ color: '#03C9D7' }} />
                                     <span className="hidden font-medium md:block dark:text-white">Networking</span>
                                 </div>
                             </div>
-                            <div aria-label="add to zoom" className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 dark:hover:border-blue-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 dark:hover:border-blue-300/30">
                                 <div className="flex justify-center space-x-4">
                                     <GiGraduateCap className='w-6 h-6' style={{ color: '#03C9D7' }} />
                                     <span className="hidden font-medium md:block dark:text-white">Job search</span>
@@ -50,7 +50,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="grid grid-cols-3 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
-                            <div aria-label="add to slack" className="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
                                 <div className="flex justify-center space-x-4">
                                     <CgCommunity className='w-6 h-6' style={{ color: '#03C9D7' }} />
                                     <span className="hidden font-medium md:block dark:text-white">
@@ -58,7 +58,7 @@ const Header = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div aria-label="add to chat" className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-lime-600/20 dark:hover:border-green-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-green-400 hover:shadow-lg hover:shadow-lime-600/20 dark:hover:border-green-300/30">
                                 <div className="flex justify-center space-x-4">
                                     <GiLifeSupport className='w-6 h-6' style={{ color: '#03C9D7' }} />
                                     <span className="hidden font-medium md:block dark:text-white">
@@ -66,7 +66,7 @@ const Header = () => {
                                     </span>
                                 </div>
                             </div>
-                            <div aria-label="add to zoom" className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 dark:hover:border-blue-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 dark:hover:border-blue-300/30">
                                 <div className="flex justify-center space-x-4">
                                     <GiOfficeChair className='w-6 h-6' style={{ color: '#03C9D7' }} />
                                     <span className="hidden font-medium md:block dark:text-white">
@@ -76,7 +76,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="grid grid-cols-2 space-x-4 md:space-x-6 md:flex md:justify-center lg:justify-start">
-                            <div aria-label="add to slack" className="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
+                            <div className="p-4 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-full duration-300 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-600/20 dark:hover:border-cyan-300/30">
                                 <div className="flex justify-center space-x-4">
                                     <FcCollaboration className='w-6 h-6' style={{ color: '#03C9D7' }} />
                                     <span className="hidden font-medium md:block dark:text-white">
@@ -85,17 +85,11 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="dark:text-gray-300">
-                            🔥🌟
-                            <span>Career success starts here. Explore our services today.</span>
-                        </div>
-
                     </div>
                     <div className="mt-12 md:mt-0 lg:absolute -right-10 lg:w-7/12">
                         <div className="flex justify-center items-center relative w-full">
                             <div aria-hidden="true" className="absolute scale-75 md:scale-110 inset-0 m-auto w-full h-full md:w-96 md:h-96 rounded-full rotate-45 bg-gradient-to-r from-sky-500 to-cyan-300 blur-3xl"></div>
-                            <img src="https://tailus.io/sources/blocks/tech-startup/preview/images/globalization-cuate.svg" className="relative w-full" alt="wath illustration" loading="lazy"  style={{width:'550px'}} />
+                            <img src="https://tailus.io/sources/blocks/tech-startup/preview/images/globalization-cuate.svg" className="relative w-full" alt="wath illustration" loading="lazy" style={{ width: '550px' }} />
                         </div>
                     </div>
                 </div>
