@@ -6,6 +6,7 @@ export interface BlogPost {
     _id: string;
     firstName: string;
     email: string;
+    bio?: string;
     userImage: string[];
   };
   category: string;
@@ -23,16 +24,18 @@ export interface BlogPost {
 export interface BlogContextType {
   blogs: BlogPost[] | null,
   blog: BlogPost | null,
+  relatedBlogs: BlogPost[] | null,
   current: BlogPost | null,
   filtered: BlogPost[] | null,
   getBlogs: () => Promise<void>,
-  getBlog: (_id: string, category: string) => Promise<void>,
+  getBlog: (_id: string) => Promise<void>,
   updatePost: () => void,
   clearPosts: () => void,
   setCurrent: (blog: BlogPost) => void,
   clearCurrent: () => void,
   filterBlogs: (query: string) => void,
   clearFilter: () => void,
+  getRelatedBlogs: (text:string) => void,
 }
 const blogContext = createContext<BlogContextType | undefined>(undefined);
 

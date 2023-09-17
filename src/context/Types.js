@@ -16,6 +16,7 @@ export const SET_CURRENT = 'SET_CURRENT';
 
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POST = 'GET_POST';
+export const GET_RELATEDPOSTS = 'GET_RELATEDPOSTS';
 export const UPDATE_POST = 'UPDATE_POST';
 export const GET_POSTDETAILS = 'GET_POSTDETAILS';
 export const GET_RECENTPOSTS = 'GET_RECENTPOSTS';

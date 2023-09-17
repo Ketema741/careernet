@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import blogContext, { BlogPost } from './blogContext';
-import blogReducer from './blogReducer';
+import blogReducer, {State} from './blogReducer';
 
 import {
   GET_POSTS,
@@ -13,6 +13,7 @@ import {
   CLEAR_FILTER,
   POST_ERROR,
   UPDATE_POST,
+  GET_RELATEDPOSTS,
 } from '../Types';
 
 type Props = {
@@ -21,10 +22,9 @@ type Props = {
 const Blogstate = (props: Props) => {
   const api_url = "https://careernet-api.vercel.app"
 
-  const initialState = {
+  const initialState: State = {
     blogs: null,
-    jobs: null,
-    relatedPost: null,
+    relatedBlogs: null,
     blog: null,
     current: null,
     filtered: null,
@@ -73,10 +73,10 @@ const Blogstate = (props: Props) => {
   };
 
   // Get blog
-  const getBlog = async (_id: string, category: string) => {
-    filterBlogs(category)
+  const getBlog = async (_id: string) => {
     try {
       const res = await axios.get(`${api_url}/api/blogs/${_id}`);
+      getRelatedBlogs(res.data.category)
       dispatch({
         type: GET_POST,
         payload: res.data,
@@ -115,12 +115,17 @@ const Blogstate = (props: Props) => {
   const clearFilter = () => {
     dispatch({ type: CLEAR_FILTER });
   };
+  // filter blogs
+  const getRelatedBlogs = (text:string) => {
+    dispatch({ type: GET_RELATEDPOSTS, payload: text });
+  };
 
   return (
     <blogContext.Provider
       value={{
         blogs: state.blogs,
         blog: state.blog,
+        relatedBlogs: state.relatedBlogs,
         current: state.current,
         filtered: state.filtered,
         getBlogs,
@@ -131,6 +136,7 @@ const Blogstate = (props: Props) => {
         clearCurrent,
         filterBlogs,
         clearFilter,
+        getRelatedBlogs,
       }}
     >
       {props.children}

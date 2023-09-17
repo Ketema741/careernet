@@ -1,7 +1,7 @@
 import React from "react";
 import { useStateContext } from "../../context/ContextProvider";
 import { useNavigate } from 'react-router-dom';
-import { useBlogContext, BlogPost } from '../../context/blog/blogContext';
+import { BlogPost } from '../../context/blog/blogContext';
 import placeHolder from '../../assets/svg/undraw_feeling_proud_qne1.svg';
 
 type Props = {
@@ -9,11 +9,9 @@ type Props = {
 }
 
 const BlogCard = ({ blog }: Props) => {
-  const { getBlog } = useBlogContext()
   const navigate = useNavigate()
 
   const handleView = () => {
-    getBlog(blog._id, blog.category)
     navigate(`/blog/${blog._id}`)
   }
 

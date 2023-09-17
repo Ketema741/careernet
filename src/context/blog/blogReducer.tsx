@@ -9,13 +9,15 @@ import {
   CLEAR_FILTER,
   POST_ERROR,
   SET_CURRENT,
-  GET_JOBS
+  GET_JOBS,
+  GET_RELATEDPOSTS
 } from '../Types';
 import { BlogPost } from './blogContext';
 
-interface State {
+export interface State {
   blogs: BlogPost[] | null,
   blog: BlogPost | null,
+  relatedBlogs: BlogPost[] | null,
   current: BlogPost | null,
   filtered: BlogPost[] | null,
 }
@@ -30,7 +32,8 @@ interface Action {
   | typeof CLEAR_FILTER
   | typeof POST_ERROR
   | typeof SET_CURRENT
-  | typeof GET_JOBS;
+  | typeof GET_JOBS
+  | typeof GET_RELATEDPOSTS;
   payload?: any;
 
 }
@@ -42,6 +45,15 @@ const blogReducer: Reducer<State, Action> = (state, action) => {
         ...state,
         blogs: action.payload,
 
+      };
+    case GET_RELATEDPOSTS:
+      return {
+        ...state,
+        relatedBlogs: state.blogs ?
+          state.blogs.filter(({ title, category }) => {
+            const testString = `${title}${category}`.toLowerCase();
+            return testString.includes(action.payload.toLowerCase());
+          }) : null,
       };
     case GET_JOBS:
       return {
