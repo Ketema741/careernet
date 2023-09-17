@@ -6,7 +6,7 @@ import Intern3 from '../../assets/svg/undraw_studying_re_deca.svg';
 
 import { FaArrowRight } from 'react-icons/fa';
 
-const InternshipCard:FC = () => {
+const InternshipCard: FC = () => {
   return (
 
     <div className="relative py-24">
@@ -21,8 +21,12 @@ const InternshipCard:FC = () => {
             />
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Web development</h3>
             <p>
-              Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam
-              tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.
+              We are seeking a talented web developer to join our team. As a
+              web developer, you will be responsible for designing,
+              developing, and maintaining our company website. Your
+              responsibilities will include working with the marketing team
+              to design and develop website pages that are visually
+              appealing, responsive, and user-friendly.
             </p>
             <Link
               to="/internship/abacadaba"
@@ -38,10 +42,14 @@ const InternshipCard:FC = () => {
               alt="illustration"
               loading="lazy"
             />
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Seo</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Backend Engineer</h3>
             <p>
-              Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam
-              tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.
+              We are looking for a skilled Mobile App Developer to join our
+              team. As a Mobile App Developer, you will be responsible for
+              designing, developing, and maintaining our mobile
+              applications. You will work closely with the product and
+              design teams to create user-friendly and visually appealing
+              mobile apps that meet business objectives.
             </p>
 
             <Link
@@ -58,10 +66,15 @@ const InternshipCard:FC = () => {
               alt="illustration"
               loading="lazy"
             />
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Web Design</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">UI/UX Design</h3>
             <p>
-              Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at cum, consectetur ullam
-              tempora ipsa iste officia sed officiis! Incidunt ea animi officiis.
+              We are seeking a talented UI/UX designer to join our team.
+              As a UI/UX designer, you will be responsible for designing
+              and improving user interfaces and experiences across our
+              products. Your responsibilities will include conducting user
+              research, creating wireframes and prototypes, and
+              collaborating with developers to ensure the final product is
+              visually appealing and user-friendly.
             </p>
             <Link
               to="/internship/abacadaba"

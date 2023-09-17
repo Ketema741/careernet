@@ -8,6 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     getBlogs()
+    
     // eslint-disable-next-line
   }, [])
   return (
