@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-import blogContext from './blogContext';
+import blogContext, { BlogPost } from './blogContext';
 import blogReducer from './blogReducer';
 
 import {
@@ -13,10 +13,14 @@ import {
   CLEAR_FILTER,
   POST_ERROR,
   UPDATE_POST,
-  GET_JOBS
 } from '../Types';
 
-const Blogstate = (props) => {
+type Props = {
+  children: React.ReactNode
+}
+const Blogstate = (props: Props) => {
+  const api_url = "https://careernet-api.vercel.app"
+
   const initialState = {
     blogs: null,
     jobs: null,
@@ -31,62 +35,60 @@ const Blogstate = (props) => {
   // Get blogs
   const getBlogs = async () => {
     try {
-      const res = await axios.get('/api/blogs');
+      const res = await axios.get(`${api_url}/api/blogs`);
       dispatch({
         type: GET_POSTS,
         payload: res.data,
       });
     } catch (err) {
-      dispatch({
-        type: POST_ERROR,
-        payload: err.response.msg,
+      if (err instanceof Error) {
+        dispatch({
+          type: POST_ERROR,
+          payload: err.message,
 
-      });
-      console.log({'erro':err})
+        });
+      }
+      console.log({ 'erro': err })
     }
   };
 
   // update blogs
   const updatePost = async () => {
     try {
-      const res = await axios.put('api/blogs');
+      const res = await axios.put(`${api_url}/api/blogs`);
       dispatch({
         type: UPDATE_POST,
         payload: res.data,
       });
     } catch (err) {
-      dispatch({
-        type: POST_ERROR,
-        payload: err.response.msg,
+      if (err instanceof Error) {
+        dispatch({
+          type: POST_ERROR,
+          payload: err.message,
 
-      });
-      console.log({'erro':err})
+        });
+      }
+      console.log({ 'erro': err })
     }
   };
 
-
-
   // Get blog
-  const getBlog = async (_id, category) => {
+  const getBlog = async (_id: string, category: string) => {
     filterBlogs(category)
     try {
-      const res = await axios.get(`api/blogs/${_id}`);
+      const res = await axios.get(`${api_url}/api/blogs/${_id}`);
       dispatch({
         type: GET_POST,
         payload: res.data,
       });
     } catch (err) {
-      dispatch({
-        type: POST_ERROR,
-        payload: err.response.msg,
-      });
+      if (err instanceof Error) {
+        dispatch({
+          type: POST_ERROR,
+          payload: err.message,
+        });
+      }
     }
-  };
-
-
-  // get jobs
-  const getJobs = (text) => {
-    dispatch({ type: GET_JOBS, payload: text });
   };
 
   // clear posts
@@ -94,10 +96,8 @@ const Blogstate = (props) => {
     dispatch({ type: CLEAR_POSTS });
   };
 
-  
-
   // set current
-  const setCurrent = (blog) => {
+  const setCurrent = (blog: BlogPost) => {
     dispatch({ type: SET_CURRENT, payload: blog });
   };
 
@@ -107,7 +107,7 @@ const Blogstate = (props) => {
   };
 
   // filter blogs
-  const filterBlogs = (text) => {
+  const filterBlogs = (text: string) => {
     dispatch({ type: FILTER_POSTS, payload: text });
   };
 
@@ -120,13 +120,11 @@ const Blogstate = (props) => {
     <blogContext.Provider
       value={{
         blogs: state.blogs,
-        jobs: state.jobs,
         blog: state.blog,
         current: state.current,
         filtered: state.filtered,
         getBlogs,
         getBlog,
-        getJobs,
         updatePost,
         clearPosts,
         setCurrent,
