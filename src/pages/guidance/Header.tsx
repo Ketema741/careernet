@@ -1,5 +1,4 @@
 import React from 'react';
-import { BsArrowDown } from 'react-icons/bs';
 import feelingProud from '../../assets/svg/undraw_feeling_proud_qne1.svg'
 
 
@@ -16,13 +15,7 @@ const HeaderCarousel = () => {
                     <p className="mt-8 text-gray-600 dark:text-gray-300">
                         Odio incidunt nam itaque sed eius modi error totam sit illum. Voluptas doloribus asperiores quaerat aperiam. Quidem harum omnis beatae ipsum soluta!
                     </p>
-                    <div className="mt-10 flex justify-center ">
-                        <a href="#read">
-                            <svg className="z-0 animate-bounce w-8 h-8">
-                                <BsArrowDown className="text-3xl text-blue-800" />
-                            </svg>
-                        </a>
-                    </div>
+                    
                 </div>
                 <div className="overflow-hidden w-full lg:w-7/12 lg:-mr-16">
                     <img src={feelingProud} alt="feeling Proud" style={{width:'550px', height:"510px"}} />

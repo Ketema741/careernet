@@ -1,9 +1,8 @@
 import React, { useState, FC } from 'react';
 import { HiChevronDown } from 'react-icons/hi';
+import { FaSearch } from 'react-icons/fa';
 
 import bg from '../../assets/backgroundImage/blogbg1.png';
-
-import { FaSearch } from 'react-icons/fa';
 
 
 
@@ -107,6 +106,8 @@ const Header: FC = () => {
               </div>
             </form>
           </div>
+
+          
         </div>
       </div>
     </div>
