@@ -20,7 +20,7 @@ type Props = {
   children: React.ReactNode
 }
 const InternshipState  = (props:Props) => {
-  const api_url = "https://careernet-api.vercel.app/"
+  const api_url = "https://careernet-api.vercel.app"
   const initialState: State = {
     internships: [],
     internship: null,

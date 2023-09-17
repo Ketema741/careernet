@@ -33,7 +33,7 @@ interface Action {
   | typeof FILTER_INTERNSHIPS
   | typeof CLEAR_FILTER
   | typeof INTERNSHIP_ERROR;
-  payload?: any; // Adjust payload type according to your data
+  payload?: any; 
 }
 
 const internshipReducer: Reducer<State, Action> = (state, action) => {
