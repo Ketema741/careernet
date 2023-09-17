@@ -1,20 +1,17 @@
 import React, { useState, FC } from 'react';
+import { FaSearch } from 'react-icons/fa';
 import { HiChevronDown } from 'react-icons/hi';
 
 import bg from '../../assets/backgroundImage/blogbg1.png';
 
-import { FaSearch } from 'react-icons/fa';
-
-
-
-const Header:FC = () => {
+const Header: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState('Select');
   const [inputValue, setInputValue] = useState('');
 
   const handleToggleJobList = () => setIsOpen(!isOpen);
 
-  const handleJobSelection = (job:string) => {
+  const handleJobSelection = (job: string) => {
     setSelectedJob(job);
     setIsOpen(false);
   };

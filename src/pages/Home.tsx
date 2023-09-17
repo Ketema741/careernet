@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <h1>hellow mother fuckers</h1>
+      <h1>Hello mother fuckers</h1>
     </div>
   );
 };

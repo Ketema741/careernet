@@ -7,6 +7,7 @@ import {
   InternshipDetail,
   Jobs,
   JobDetail,
+  Blogs,
 } from './pages';
 import AboutUs from './pages/aboutus/AboutUs';
 import FAQ from './pages/faq/FAQ';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/internship/:id" element={<InternshipDetail />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/job/:id" element={<JobDetail />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Route>
       </Routes>
     </Router>
