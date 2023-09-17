@@ -1,8 +1,5 @@
 import React, { FC } from "react";
 import { Link } from 'react-router-dom';
-import Intern1 from '../../assets/svg/undraw_team_spirit_re_yl1v.svg';
-import Intern2 from '../../assets/svg/undraw_job_hunt_re_q203.svg';
-import Intern3 from '../../assets/svg/undraw_studying_re_deca.svg';
 
 import { FaArrowRight } from 'react-icons/fa';
 
