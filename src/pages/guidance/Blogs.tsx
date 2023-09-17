@@ -2,9 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { FiSearch } from 'react-icons/fi';
-import { GiGraduateCap } from 'react-icons/gi'
-import { FaConnectdevelop } from 'react-icons/fa'
+import { GiGraduateCap, GiSkills } from 'react-icons/gi'
+import { HiOutlineBuildingOffice2 } from 'react-icons/hi2'
 import { SiBookstack } from 'react-icons/si'
+import { SlBriefcase } from 'react-icons/sl'
+import { MdSelfImprovement } from 'react-icons/md'
 
 import { useBlogContext } from '../../context/blog/blogContext';
 
@@ -100,7 +102,7 @@ const Blogs: React.FC = () => {
               <div
                 className="flex justify-center space-x-4"
               >
-                <SiBookstack className='w-6 h-6' style={{ color: '#03C9D7' }} />
+                <HiOutlineBuildingOffice2 className='w-6 h-6' style={{ color: '#03C9D7' }} />
                 <span className="truncate font-sm dark:text-white">
                   Internship
                 </span>
@@ -112,7 +114,7 @@ const Blogs: React.FC = () => {
               className={`h-10 px-6 py-1 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 ${typeFilter === "career advice" ? "border-green-400" : ""} hover:border-green-400 hover:shadow-lg hover:shadow-lime-600/20 dark:hover:border-green-300/30`}
             >
               <div className="flex justify-center space-x-4">
-                <FaConnectdevelop className='w-6 h-6' style={{ color: '#03C9D7' }} />
+                <SlBriefcase className='w-6 h-6' style={{ color: '#03C9D7' }} />
                 <span className="truncate font-sm dark:text-white">Career Advice</span>
               </div>
             </button>
@@ -121,7 +123,7 @@ const Blogs: React.FC = () => {
               onClick={() => handleFilterChange("query", "self-improvement")}
               className={`h-10 px-6 py-1 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 ${typeFilter === "self-improvement" ? "border-blue-400" : ""}  hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 dark:hover:border-blue-300/30`}>
               <div className="flex flex-no-wrap justify-center space-x-2">
-                <GiGraduateCap className='w-6 h-6' style={{ color: '#03C9D7' }} />
+                <MdSelfImprovement className='w-6 h-6' style={{ color: '#03C9D7' }} />
                 <span className="truncate font-sm dark:text-white">Self-improvement</span>
               </div>
             </button>
@@ -140,7 +142,7 @@ const Blogs: React.FC = () => {
               className={`h-10 px-6 py-1 border border-gray-200 dark:bg-gray-800  dark:border-gray-700 rounded-full duration-300 ${typeFilter === "experience" ? "border-blue-400" : ""} hover:border-blue-400 hover:shadow-lg hover:shadow-blue-600/20 dark:hover:border-blue-300/30`}
             >
               <div className="flex justify-center space-x-4">
-                <GiGraduateCap className='w-6 h-6' style={{ color: '#03C9D7' }} />
+                <GiSkills className='w-6 h-6' style={{ color: '#03C9D7' }} />
                 <span className="truncate font-sm dark:text-white">Experience</span>
               </div>
             </button>
