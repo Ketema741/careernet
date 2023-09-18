@@ -1,9 +1,9 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, FC } from 'react';
 import axios from 'axios';
 import setAuthToken from '../../utils/setAuthToken';
 
-import AuthContext from './authContext';
-import authReducer from './authReducer';
+import AuthContext, { User } from './authContext';
+import authReducer, { State } from './authReducer';
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -15,12 +15,15 @@ import {
   LOGOUT,
 } from '../Types';
 
-const AuthState = (props) => {
-  const initialState = {
+interface Props {
+  children: React.ReactNode
+}
+
+const AuthState: FC<Props> = ({ children }) => {
+  const initialState: State = {
     user: null,
     token: localStorage.token,
     currentUser: null,
-
     isUserAuthenticated: null,
     userLoading: true,
     error: null,
@@ -29,9 +32,9 @@ const AuthState = (props) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
   // Register user
-  const userRegister = async (formData, images) => {
-    formData.userImage = images || []; // default to an empty array if images is null or undefined
-;
+  const userRegister = async (formData: User, images: string[]) => {
+    formData.userImage = images || [];
+    ;
 
     const config = {
       headers: {
@@ -45,14 +48,17 @@ const AuthState = (props) => {
         payload: res.data,
       });
     } catch (err) {
-      dispatch({
-        type: REGISTER_FAIL,
-        payload: err.response.data,
-      });
+
+      if (err instanceof Error) {
+        dispatch({
+          type: REGISTER_FAIL,
+          payload: err.message,
+        });
+      }
     }
   };
 
-  const removeImage = async (public_id) => {
+  const removeImage = async (public_id: string) => {
     const id_obj = {
       public_id: public_id,
     };
@@ -66,24 +72,30 @@ const AuthState = (props) => {
       const res = await axios.post(`api/users/image`, id_obj, config);
       console.log(res);
     } catch (err) {
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: err.response.data.msg,
-      });
-      console.log('error ', err.response);
+      if (err instanceof Error) {
+        dispatch({
+          type: LOGIN_FAIL,
+          payload: err.message,
+        });
+      }
     }
   };
 
   // login user
-  const userLogin = async (formData) => {
+  type loginProps = {
+    email: string,
+    passowrd: string,
+  }
+  const userLogin = async (formData: loginProps) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
       },
     };
-   
 
-    try { const res = await axios.post('api/auth-user', formData, config);
+
+    try {
+      const res = await axios.post('api/auth-user', formData, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -92,12 +104,14 @@ const AuthState = (props) => {
 
       loadUser();
     } catch (err) {
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: err.response.data.msg,
-      });
+      if (err instanceof Error) {
+        dispatch({
+          type: LOGIN_FAIL,
+          payload: err.message,
+        });
 
-      console.log('error ', err.response);
+        console.log('error ', err.message);
+      }
     }
   };
 
@@ -106,25 +120,25 @@ const AuthState = (props) => {
 
   // load user
   const loadUser = async () => {
-      if (localStorage.token) {
-        setAuthToken(localStorage.token);
-      }
-      const res = await axios.get('api/auth-user');
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
+    const res = await axios.get('api/auth-user');
 
-      try {
-        dispatch({
-          type: USER_LOADED,
-          payload: res.data,
-        });
-      } catch (error) {
-        dispatch({
-          type: AUTH_ERROR,
-        });
-      }
-    };
+    try {
+      dispatch({
+        type: USER_LOADED,
+        payload: res.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: AUTH_ERROR,
+      });
+    }
+  };
 
   // set current
-  const setCurrent = (user) => {
+  const setCurrent = (user: User) => {
     dispatch({ type: SET_CURRENT, payload: user });
   };
 
@@ -148,7 +162,10 @@ const AuthState = (props) => {
       value={{
         user: state.user,
         error: state.error,
+        token: state.token,
+        currentUser: state.currentUser,
         isUserAuthenticated: state.isUserAuthenticated,
+        userLoading: state.userLoading,
         userRegister,
         setCurrent,
         userLogin,
@@ -157,7 +174,7 @@ const AuthState = (props) => {
         removeImage,
       }}
     >
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 };

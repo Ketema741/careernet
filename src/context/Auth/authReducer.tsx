@@ -1,16 +1,42 @@
+import { Reducer } from 'react';
+
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
     USER_LOADED,
     AUTH_ERROR,
-    LOGIN_SUCCESS,
     SET_CURRENT,
+    LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
     CLEAR_ERRORS,
   } from '../Types';
-  
-  const authReducer = (state, action) => {
+  import { User } from './authContext';
+
+  export interface State{
+    user: User | null,
+    token: string | null,
+    currentUser: User | null,
+    isUserAuthenticated: string | null,
+    userLoading: boolean | null,
+    error: string | null,
+  }
+
+  interface Action{
+    type:
+    | typeof REGISTER_SUCCESS
+    | typeof REGISTER_FAIL
+    | typeof USER_LOADED
+    | typeof SET_CURRENT
+    | typeof AUTH_ERROR
+    | typeof LOGIN_SUCCESS
+    | typeof LOGIN_FAIL
+    | typeof LOGOUT
+    | typeof CLEAR_ERRORS;
+    payload?:any;
+  }
+
+  const authReducer:Reducer<State, Action> = (state, action) => {
     switch (action.type) {
       case USER_LOADED:
         return {
