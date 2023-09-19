@@ -9,6 +9,10 @@ import {
   JobDetail,
   Blogs,
   BlogDetail,
+  Register,
+  Login,
+  Profile,
+  
 } from './pages';
 import AboutUs from './pages/aboutus/AboutUs';
 import FAQ from './pages/faq/FAQ';
@@ -28,7 +32,10 @@ function App() {
           <Route path="/job/:id" element={<JobDetail />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/profile" element={<Profile />} />
         </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );
