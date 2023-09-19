@@ -3,14 +3,11 @@ import { useContext, createContext } from 'react';
 export interface User {
   _id?: string;
   firstName: string;
+  lastName: string;
+  password: string;
   email: string;
   bio?: string;
-  userImage: string[];
-}
-
-type loginProps = {
-  email: string,
-  passowrd: string,
+  userImage?: string[];
 }
 
 export interface AuthContextType {
@@ -22,7 +19,7 @@ export interface AuthContextType {
   error: string | null,
   userRegister: (user: User, images: string[]) => Promise<void>,
   setCurrent: (user: User) => void,
-  userLogin: (formData: loginProps) => Promise<void>,
+  userLogin: (formData: any) => Promise<void>,
   logout: () => void,
   loadUser: () => void,
   removeImage: (public_id:string) => Promise<void>,

@@ -20,6 +20,8 @@ interface Props {
 }
 
 const AuthState: FC<Props> = ({ children }) => {
+  const api_url = "https://careernet-api.vercel.app"
+
   const initialState: State = {
     user: null,
     token: localStorage.token,
@@ -42,7 +44,7 @@ const AuthState: FC<Props> = ({ children }) => {
       },
     };
     try {
-      const res = await axios.post('/api/users', formData, config);
+      const res = await axios.post(`${api_url}/api/users`, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -69,7 +71,7 @@ const AuthState: FC<Props> = ({ children }) => {
       },
     };
     try {
-      const res = await axios.post(`api/users/image`, id_obj, config);
+      const res = await axios.post(`${api_url}/api/users/image`, id_obj, config);
       console.log(res);
     } catch (err) {
       if (err instanceof Error) {
@@ -95,7 +97,7 @@ const AuthState: FC<Props> = ({ children }) => {
 
 
     try {
-      const res = await axios.post('api/auth-user', formData, config);
+      const res = await axios.post(`${api_url}/api/auth-user`, formData, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
@@ -123,7 +125,7 @@ const AuthState: FC<Props> = ({ children }) => {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
     }
-    const res = await axios.get('api/auth-user');
+    const res = await axios.get(`${api_url}/api/auth-user`);
 
     try {
       dispatch({
