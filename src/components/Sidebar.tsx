@@ -4,7 +4,7 @@ import { MdOutlineCancel } from 'react-icons/md';
 
 import { links } from '../assets/data/dummy';
 import { useStateContext } from '../context/ContextProvider';
-import Logo from '../assets/partnercompany/logo.png';
+import Logo from '../assets/svg/logo.svg';
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
